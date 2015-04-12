@@ -16,7 +16,7 @@ module.exports =
     execute = (params) ->
       db.prepare(text).then (stmt) ->
         stmt.execute(params).then (results) ->
-          cache.store text, results.rows if options.duration > 0
+          cache.store text, results.rows, options.duration if options.duration > 0
           queried.resolve results.rows
         .done()
       .done()
