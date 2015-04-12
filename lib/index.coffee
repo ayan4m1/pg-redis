@@ -4,7 +4,10 @@ cache = require './cache'
 db = require './db'
 
 module.exports =
-  connect: (pgConfig) -> db.init(pgConfig)
+  init: db.init
+  # expose prepare/execute api
+  prepare: db.prepare
+  # expose simplified, cache-enabled api
   query: (text, options) ->
     queried = p.defer()
 
