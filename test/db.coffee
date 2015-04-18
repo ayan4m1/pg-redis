@@ -1,3 +1,4 @@
+p = require 'p-promise'
 config = require('konfig')()
 
 describe 'db', ->
@@ -37,4 +38,20 @@ describe 'db', ->
     , (err) ->
       console.error err
       expect(err).toBeUndefined()
+    .done()
+
+  it 'should execute a batch insert', (done) ->
+    db.prepare('begin; create temporary table temp_insert_test (dummy integer);', { batch: true })
+    .then (stmt) ->
+      release = stmt.release
+      stmt.execute().then ->
+        db.prepare('insert into temp_insert_test values ($1::integer)', { client: stmt.client }).then (stmt) ->
+          inserts = []
+          inserts.push(stmt.execute([i])) for i in [1 .. 1000]
+          p.all(inserts).then (results) ->
+            expect(results).toBeDefined()
+            release()
+          .done(done)
+        .done()
+      .done()
     .done()
