@@ -6,6 +6,7 @@ redis = require('redis');
 
 crypto = require('crypto');
 
+// connect to redis
 cache = redis.createClient();
 
 module.exports = {
@@ -13,6 +14,7 @@ module.exports = {
     var hash;
     hash = crypto.createHash('sha1');
     hash.update(input);
+    // todo: configurable key building function
     return hash.digest('hex');
   },
   store: function(query, results, duration) {

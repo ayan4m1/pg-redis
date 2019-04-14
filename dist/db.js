@@ -1,6 +1,6 @@
-var dbConfig, p, pg;
+var Client, dbConfig, p;
 
-pg = require('pg');
+({Client} = require('pg'));
 
 p = require('p-promise');
 
@@ -13,12 +13,9 @@ module.exports = {
   config: function() {
     return dbConfig;
   },
-  prepare: function(text, options) {
-    var batch, client, connected, createStatement;
-    if (options == null) {
-      options = {};
-    }
-    client = options.client, batch = options.batch;
+  prepare: function(text, options = {}) {
+    var batch, client, connected, createStatement, newClient;
+    ({client, batch} = options); // if set, use this instead of getting a connection from the pool // boolean, true if connection should remain open after execution
     connected = p.defer();
     createStatement = function(client, release) {
       return {
@@ -33,6 +30,7 @@ module.exports = {
               this.release();
             }
             if (err != null) {
+              // fulfill promise based on results
               queried.reject(err);
             }
             return queried.resolve(res);
@@ -41,10 +39,12 @@ module.exports = {
         }
       };
     };
+    // use existing client if provided
     if (client != null) {
-      connected.resolve(createStatement(client));
+      connected.resolve(createStatement(client)); // fetch a connection from the pool
     } else {
-      pg.connect(dbConfig, function(err, client, release) {
+      newClient = new Client(dbConfig);
+      newClient.connect(function(err, client, release) {
         if (err != null) {
           connected.reject(err);
         }
