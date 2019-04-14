@@ -20,16 +20,11 @@
     "pg"
   ],
   "dependencies": {
-    "konfig": "^0.2.1",
-    "p-promise": "^0.5.0",
     "pg": "^7.9.0",
     "redis": "^2.8.0"
   },
   "devDependencies": {
-    "coffeescript": "^2.4.1",
     "gulp": "^4.0.0",
-    "gulp-coffee": "^3.0.3",
-    "gulp-coffeelint": "^0.6.0",
     "gulp-jasmine": "^4.0.0",
     "jasmine-reporters": "^2.3.2"
   }
