@@ -5,7 +5,7 @@ crypto = require 'crypto'
 # connect to redis
 cache = redis.createClient()
 
-module.exports =
+module.exports = {
   hash: (input) ->
     hash = crypto.createHash 'sha1'
     hash.update input
@@ -28,3 +28,4 @@ module.exports =
         queried.resolve JSON.parse results
 
     queried.promise
+}

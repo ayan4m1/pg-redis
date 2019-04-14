@@ -1,30 +1,34 @@
 gulp = require 'gulp'
 coffee = require 'gulp-coffee'
-lint = require 'gulp-coffeelint'
+coffeeLint = require 'gulp-coffeelint'
 jasmine = require 'gulp-jasmine'
 reporters = require 'jasmine-reporters'
 
 glob = (dir, ext = 'coffee') -> "#{dir}/**/*.#{ext}"
 lib = glob('lib')
-test = glob('test')
+tests = glob('test')
 
-gulp.task 'build', ->
+lint = ->
+  gulp.src lib
+    .pipe coffeeLint()
+    .pipe coffeeLint.reporter()
+
+build = ->
   gulp.src lib
     .pipe coffee({ bare: true })
   .pipe gulp.dest('dist/')
 
-gulp.task 'lint', ->
-  gulp.src lib
-    .pipe lint()
-    .pipe lint.reporter()
-
-gulp.task 'test', ['build'], ->
-  reporterConfig =
+test = ->
+  reporterConfig = {
     verbosity: 3
     color: true
     showStack: true
+  }
 
-  gulp.src test
+  gulp.src tests
     .pipe jasmine({ reporter: new reporters.TerminalReporter(reporterConfig) })
 
-gulp.task 'default', ['lint', 'build', 'test']
+gulp.task 'lint', lint
+gulp.task 'build', build
+gulp.task 'test', test
+gulp.task 'default', gulp.series(lint, build, test)

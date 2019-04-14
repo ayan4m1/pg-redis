@@ -3,7 +3,7 @@ p = require 'p-promise'
 cache = require './cache'
 db = require './db'
 
-module.exports =
+module.exports = {
   init: db.init
   # expose prepare/execute api
   prepare: db.prepare
@@ -19,7 +19,8 @@ module.exports =
     execute = (params) ->
       db.prepare(text).then (stmt) ->
         stmt.execute(params).then (results) ->
-          cache.store text, results.rows, options.duration if options.duration > 0
+          if options.duration > 0
+            cache.store text, results.rows, options.duration
           queried.resolve results.rows
         .done()
       .done()
@@ -31,3 +32,4 @@ module.exports =
     ).done()
 
     queried.promise
+}

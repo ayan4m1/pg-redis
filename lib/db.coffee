@@ -1,9 +1,9 @@
-pg = require 'pg'
+{ Client } = require 'pg'
 p = require 'p-promise'
 
 dbConfig = {}
 
-module.exports =
+module.exports = {
   init: (config) -> dbConfig = config
   config: -> dbConfig
   prepare: (text, options = {}) ->
@@ -14,7 +14,7 @@ module.exports =
 
     connected = p.defer()
 
-    createStatement = (client, release) ->
+    createStatement = (client, release) -> {
       client: client
       text: text
       release: release ? null
@@ -28,13 +28,16 @@ module.exports =
           queried.resolve res
 
         queried.promise
+      }
 
     # use existing client if provided
     if client?
       connected.resolve createStatement(client)
     else # fetch a connection from the pool
-      pg.connect dbConfig, (err, client, release) ->
+      newClient = new Client(dbConfig)
+      newClient.connect (err, client, release) ->
         connected.reject err if err?
         connected.resolve createStatement(client, release)
 
     connected.promise
+}
