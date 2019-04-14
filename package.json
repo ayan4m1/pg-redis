@@ -6,6 +6,9 @@
   "license": "MIT",
   "main": "dist/index.js",
   "scripts": {
+    "prepare": "gulp",
+    "build": "gulp",
+    "develop": "gulp watch",
     "test": "gulp test"
   },
   "repository": {
