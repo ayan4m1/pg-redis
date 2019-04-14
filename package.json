@@ -22,15 +22,15 @@
   "dependencies": {
     "konfig": "^0.2.1",
     "p-promise": "^0.5.0",
-    "pg": "^4.3.0",
-    "redis": "^0.12.1"
+    "pg": "^7.9.0",
+    "redis": "^2.8.0"
   },
   "devDependencies": {
-    "coffee-script": "^1.9.1",
-    "gulp": "^3.8.11",
-    "gulp-coffee": "^2.3.1",
-    "gulp-coffeelint": "^0.4.0",
-    "gulp-jasmine": "^2.0.0",
-    "jasmine-reporters": "^2.0.5"
+    "coffeescript": "^2.4.1",
+    "gulp": "^4.0.0",
+    "gulp-coffee": "^3.0.3",
+    "gulp-coffeelint": "^0.6.0",
+    "gulp-jasmine": "^4.0.0",
+    "jasmine-reporters": "^2.3.2"
   }
 }
