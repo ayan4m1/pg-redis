@@ -1,9 +1,0 @@
-default:
-  # hostname or domain socket location
-  host: /var/run/postgresql
-  # database schema
-  database: postgres
-  # use ~ to specify current username
-  user: ~
-  # use ~ to request password-less login
-  password: ~
