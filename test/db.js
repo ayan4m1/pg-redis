@@ -7,6 +7,10 @@ describe('Database', () => {
   const { postgres: config } = configs;
   const db = new Database(config);
 
+  afterAll(() => {
+    db.client.close();
+  });
+
   it('should have a pool getter', () => {
     expect(db.pool).toBeDefined();
   });
