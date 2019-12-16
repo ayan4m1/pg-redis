@@ -1,9 +1,9 @@
 import Database from '../lib/db';
 
-import cosmiconfig from 'cosmiconfig';
+import { cosmiconfigSync } from 'cosmiconfig';
 
 describe('Database', () => {
-  const { config: configs } = cosmiconfig('pgredis').searchSync();
+  const { config: configs } = cosmiconfigSync('pgredis').search();
   const { postgres: config } = configs;
   const db = new Database(config);
 

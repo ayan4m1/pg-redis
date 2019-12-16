@@ -27,7 +27,7 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.7.6",
-    "cosmiconfig": "^5.2.1",
+    "cosmiconfig": "^6.0.0",
     "pg": "^7.14.0",
     "redis": "^2.8.0"
   },
