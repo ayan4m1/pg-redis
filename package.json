@@ -26,7 +26,7 @@
     "pg"
   ],
   "dependencies": {
-    "@babel/runtime": "^7.7.7",
+    "@babel/runtime": "^7.15.4"
   },
   "peerDependencies": {
     "pg": "7.x || 8.x",
@@ -48,7 +48,7 @@
     "cosmiconfig": "^7.0.1",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
-    "gulp-eslint": "^6.0.0",
+    "gulp-eslint7": "^0.3.2",
     "gulp-jasmine": "^4.0.0",
     "husky": "^7.0.2",
     "jasmine-reporters": "^2.3.2",

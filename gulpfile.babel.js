@@ -1,7 +1,7 @@
 import del from 'del';
 import gulp from 'gulp';
 import babel from 'gulp-babel';
-import eslint from 'gulp-eslint';
+import eslint from 'gulp-eslint7';
 import jasmine from 'gulp-jasmine';
 import reporters from 'jasmine-reporters';
 
@@ -16,11 +16,7 @@ const lint = () =>
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 
-const compile = () =>
-  gulp
-    .src(src)
-    .pipe(babel())
-    .pipe(gulp.dest(dst));
+const compile = () => gulp.src(src).pipe(babel()).pipe(gulp.dest(dst));
 
 const test = () =>
   gulp.src(tests).pipe(
