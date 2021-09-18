@@ -27,8 +27,10 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.7.7",
-    "pg": "^7.17.0",
-    "redis": "^2.8.0"
+  },
+  "peerDependencies": {
+    "pg": "7.x || 8.x",
+    "redis": "2.x || 3.x"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
