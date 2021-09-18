@@ -1,6 +1,6 @@
 {
   "name": "pg-redis",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "A pg query wrapper with implicit redis query caching",
   "author": "ayan4m1 <andrew@bulletlogic.com>",
   "license": "MIT",
