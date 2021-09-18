@@ -5,14 +5,15 @@
   "author": "ayan4m1 <andrew@bulletlogic.com>",
   "license": "MIT",
   "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "files": [
     "dist/"
   ],
   "scripts": {
-    "build": "gulp",
-    "develop": "gulp watch",
-    "test": "gulp test",
-    "prepublishOnly": "gulp test"
+    "build": "rollup -c",
+    "develop": "rollup -c -w",
+    "test": "jest",
+    "prepublishOnly": "jest"
   },
   "repository": {
     "type": "git",
@@ -25,9 +26,6 @@
     "query",
     "pg"
   ],
-  "dependencies": {
-    "@babel/runtime": "^7.15.4"
-  },
   "peerDependencies": {
     "pg": "7.x || 8.x",
     "redis": "2.x || 3.x"
@@ -39,20 +37,15 @@
     "@babel/plugin-transform-regenerator": "^7.14.5",
     "@babel/plugin-transform-runtime": "^7.15.0",
     "@babel/preset-env": "^7.15.6",
-    "@babel/register": "^7.15.3",
+    "@rollup/plugin-node-resolve": "^13.0.4",
     "cosmiconfig": "^7.0.1",
-    "del": "^6.0.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-prettier": "^4.0.0",
-    "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
-    "gulp-eslint7": "^0.3.2",
-    "gulp-jasmine": "^4.0.0",
     "husky": "^7.0.2",
-    "jasmine-reporters": "^2.5.0",
     "lint-staged": "^11.1.2",
-    "prettier": "^2.4.1"
+    "prettier": "^2.4.1",
+    "rollup": "^2.56.3"
   }
 }

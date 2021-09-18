@@ -1,16 +1,12 @@
-'use strict';
+import { createHash } from 'crypto';
+import { createClient } from 'redis';
+import { Pool } from 'pg';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
-var crypto = require('crypto');
-var redis = require('redis');
-var pg = require('pg');
-
-const cache = redis.createClient();
+const cache = createClient();
 
 class Cache {
   hash(input) {
-    const hash = crypto.createHash('sha1');
+    const hash = createHash('sha1');
 
     hash.update(input);
     return hash.digest('hex');
@@ -35,7 +31,7 @@ class Cache {
 class Database {
   constructor(config) {
     this.config = config;
-    this.pool = new pg.Pool(this.config);
+    this.pool = new Pool(this.config);
   }
 
   async prepare(text, options = {}) {
@@ -96,4 +92,4 @@ class PgRedis {
   }
 }
 
-exports.PgRedis = PgRedis;
+export { PgRedis };

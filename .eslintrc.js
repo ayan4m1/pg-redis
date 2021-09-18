@@ -2,7 +2,7 @@ module.exports = {
   env: {
     commonjs: true,
     es2020: true,
-    jasmine: true,
+    jest: true,
     node: true
   },
   extends: [
