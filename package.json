@@ -9,7 +9,6 @@
     "dist/"
   ],
   "scripts": {
-    "prepare": "gulp",
     "build": "gulp",
     "develop": "gulp watch",
     "test": "gulp test",
