@@ -4,7 +4,7 @@ A pg query wrapper with implicit redis query caching.
 
 ## Installation
 
-    npm install pg-redis
+    npm i --save pg-redis pg redis
 
 ## Usage
 
