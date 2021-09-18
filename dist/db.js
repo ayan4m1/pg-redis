@@ -17,9 +17,7 @@ var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/creat
 
 var _pg = require("pg");
 
-var Database =
-/*#__PURE__*/
-function () {
+var Database = /*#__PURE__*/function () {
   function Database(config) {
     (0, _classCallCheck2["default"])(this, Database);
     this.config = config;
@@ -29,9 +27,7 @@ function () {
   (0, _createClass2["default"])(Database, [{
     key: "prepare",
     value: function () {
-      var _prepare = (0, _asyncToGenerator2["default"])(
-      /*#__PURE__*/
-      _regenerator["default"].mark(function _callee2(text) {
+      var _prepare = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(text) {
         var options,
             existingClient,
             batch,
@@ -66,9 +62,7 @@ function () {
                   client: client,
                   text: text,
                   execute: function () {
-                    var _execute = (0, _asyncToGenerator2["default"])(
-                    /*#__PURE__*/
-                    _regenerator["default"].mark(function _callee(params) {
+                    var _execute = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(params) {
                       var results;
                       return _regenerator["default"].wrap(function _callee$(_context) {
                         while (1) {

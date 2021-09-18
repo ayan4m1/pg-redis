@@ -19,9 +19,7 @@ var _cache = _interopRequireDefault(require("./cache"));
 
 var _db = _interopRequireDefault(require("./db"));
 
-var PgRedis =
-/*#__PURE__*/
-function () {
+var PgRedis = /*#__PURE__*/function () {
   function PgRedis(config) {
     (0, _classCallCheck2["default"])(this, PgRedis);
     this.cache = new _cache["default"]();
@@ -31,9 +29,7 @@ function () {
   (0, _createClass2["default"])(PgRedis, [{
     key: "prepare",
     value: function () {
-      var _prepare = (0, _asyncToGenerator2["default"])(
-      /*#__PURE__*/
-      _regenerator["default"].mark(function _callee(text, options) {
+      var _prepare = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(text, options) {
         return _regenerator["default"].wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -57,9 +53,7 @@ function () {
   }, {
     key: "query",
     value: function () {
-      var _query = (0, _asyncToGenerator2["default"])(
-      /*#__PURE__*/
-      _regenerator["default"].mark(function _callee2(text) {
+      var _query = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(text) {
         var options,
             cacheHit,
             statement,

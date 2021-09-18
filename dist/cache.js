@@ -21,9 +21,7 @@ var _redis = require("redis");
 
 var cache = (0, _redis.createClient)();
 
-var Cache =
-/*#__PURE__*/
-function () {
+var Cache = /*#__PURE__*/function () {
   function Cache() {
     (0, _classCallCheck2["default"])(this, Cache);
   }
@@ -38,9 +36,7 @@ function () {
   }, {
     key: "store",
     value: function () {
-      var _store = (0, _asyncToGenerator2["default"])(
-      /*#__PURE__*/
-      _regenerator["default"].mark(function _callee(query, results, duration) {
+      var _store = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(query, results, duration) {
         var hash;
         return _regenerator["default"].wrap(function _callee$(_context) {
           while (1) {
@@ -70,9 +66,7 @@ function () {
   }, {
     key: "get",
     value: function () {
-      var _get = (0, _asyncToGenerator2["default"])(
-      /*#__PURE__*/
-      _regenerator["default"].mark(function _callee2(query) {
+      var _get = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(query) {
         var hash, exists;
         return _regenerator["default"].wrap(function _callee2$(_context2) {
           while (1) {
