@@ -1,9 +1,9 @@
-import { Pool } from 'pg';
+import pg from 'pg';
 
 export default class Database {
   constructor(config) {
     this.config = config;
-    this.pool = new Pool(this.config);
+    this.pool = new pg.Pool(this.config);
   }
 
   async prepare(text, options = {}) {

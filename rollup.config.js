@@ -1,22 +1,19 @@
 import { nodeResolve } from '@rollup/plugin-node-resolve';
+import autoExternal from 'rollup-plugin-auto-external';
 
 export default [
   {
-    input: 'lib/index.js',
-    output: {
-      file: 'dist/index.js',
-      format: 'cjs'
-    },
-    external: ['redis', 'pg'],
-    plugins: [nodeResolve()]
-  },
-  {
-    input: 'lib/index.js',
-    output: {
-      file: 'dist/index.esm.js',
-      format: 'es'
-    },
-    external: ['redis', 'pg'],
-    plugins: [nodeResolve()]
+    input: 'src/index.js',
+    output: [
+      {
+        file: 'dist/index.cjs',
+        format: 'cjs'
+      },
+      {
+        file: 'dist/index.js',
+        format: 'es'
+      }
+    ],
+    plugins: [nodeResolve(), autoExternal()]
   }
 ];

@@ -1,5 +1,5 @@
-import Cache from './cache';
-import Database from './db';
+import Cache from './cache.js';
+import Database from './db.js';
 
 export class PgRedis {
   constructor(config) {
